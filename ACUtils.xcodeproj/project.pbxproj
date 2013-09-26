@@ -110,6 +110,7 @@
 		478FC08417F4CAEB00A0BAA7 /* ACUtils */ = {
 			isa = PBXGroup;
 			children = (
+				478FC0AF17F4CFDF00A0BAA7 /* Categories */,
 				478FC08717F4CAEB00A0BAA7 /* ACUtils.h */,
 				478FC08917F4CAEB00A0BAA7 /* ACUtils.m */,
 				478FC08517F4CAEB00A0BAA7 /* Supporting Files */,
@@ -141,6 +142,13 @@
 				478FC09B17F4CAEB00A0BAA7 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		478FC0AF17F4CFDF00A0BAA7 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Categories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -409,6 +417,7 @@
 				478FC0A417F4CAEB00A0BAA7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		478FC0A517F4CAEB00A0BAA7 /* Build configuration list for PBXNativeTarget "ACUtilsTests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +426,7 @@
 				478FC0A717F4CAEB00A0BAA7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
