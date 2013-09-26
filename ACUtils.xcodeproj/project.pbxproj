@@ -16,6 +16,7 @@
 		478FC09717F4CAEB00A0BAA7 /* libACUtils.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 478FC07F17F4CAEB00A0BAA7 /* libACUtils.a */; };
 		478FC09D17F4CAEB00A0BAA7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 478FC09B17F4CAEB00A0BAA7 /* InfoPlist.strings */; };
 		478FC09F17F4CAEB00A0BAA7 /* ACUtilsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 478FC09E17F4CAEB00A0BAA7 /* ACUtilsTests.m */; };
+		478FC0B617F4D28700A0BAA7 /* NSString+AC.m in Sources */ = {isa = PBXBuildFile; fileRef = 478FC0B517F4D28700A0BAA7 /* NSString+AC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,8 @@
 		478FC09A17F4CAEB00A0BAA7 /* ACUtilsTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ACUtilsTests-Info.plist"; sourceTree = "<group>"; };
 		478FC09C17F4CAEB00A0BAA7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		478FC09E17F4CAEB00A0BAA7 /* ACUtilsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ACUtilsTests.m; sourceTree = "<group>"; };
+		478FC0B417F4D28700A0BAA7 /* NSString+AC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+AC.h"; sourceTree = "<group>"; };
+		478FC0B517F4D28700A0BAA7 /* NSString+AC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+AC.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +113,7 @@
 		478FC08417F4CAEB00A0BAA7 /* ACUtils */ = {
 			isa = PBXGroup;
 			children = (
+				478FC0B317F4D27900A0BAA7 /* Categories */,
 				478FC08717F4CAEB00A0BAA7 /* ACUtils.h */,
 				478FC08917F4CAEB00A0BAA7 /* ACUtils.m */,
 				478FC08517F4CAEB00A0BAA7 /* Supporting Files */,
@@ -141,6 +145,15 @@
 				478FC09B17F4CAEB00A0BAA7 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		478FC0B317F4D27900A0BAA7 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				478FC0B417F4D28700A0BAA7 /* NSString+AC.h */,
+				478FC0B517F4D28700A0BAA7 /* NSString+AC.m */,
+			);
+			path = Categories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -225,6 +238,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				478FC08A17F4CAEB00A0BAA7 /* ACUtils.m in Sources */,
+				478FC0B617F4D28700A0BAA7 /* NSString+AC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -334,7 +348,10 @@
 				DSTROOT = /tmp/ACUtils.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ACUtils/ACUtils-Prefix.pch";
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -346,7 +363,10 @@
 				DSTROOT = /tmp/ACUtils.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ACUtils/ACUtils-Prefix.pch";
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -368,6 +388,13 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "ACUtilsTests/ACUtilsTests-Info.plist";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					XCTest,
+					"-all_load",
+					"-ObjC",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -385,6 +412,13 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ACUtils/ACUtils-Prefix.pch";
 				INFOPLIST_FILE = "ACUtilsTests/ACUtilsTests-Info.plist";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					XCTest,
+					"-all_load",
+					"-ObjC",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = xctest;
 			};

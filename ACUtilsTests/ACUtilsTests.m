@@ -7,6 +7,7 @@
 //
 
 #import <XCTest/XCTest.h>
+#import "ACUtils.h"
 
 @interface ACUtilsTests : XCTestCase
 
@@ -26,9 +27,21 @@
     [super tearDown];
 }
 
-- (void)testExample
+- (void) testIsEmptyString
 {
-    XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
+    [self isEmpty:@"Hi there"];
+    [self isEmpty:@"  "];
+    [self isEmpty:@""];
+}
+
+- (void) isEmpty:(NSString*) test
+{
+    BOOL empty = isEmpty(test);
+    NSLog(@"String (%@) is empty? %d", test, empty);
+    if (empty && [[test trim] length] > 0)
+    {
+        XCTFail(@"Non-empty string (%@) reports as empty", test);
+    }
 }
 
 @end

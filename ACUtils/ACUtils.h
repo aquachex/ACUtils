@@ -7,6 +7,19 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "NSString+AC.h"
+
+static inline BOOL isEmpty(id obj)
+{
+    if ([obj isKindOfClass:[NSString class]])
+    {
+        obj = [obj trim];
+    }
+    
+    return obj == [NSNull null]
+        || ([obj respondsToSelector:@selector(length)] && [obj length] == 0)
+        || ([obj respondsToSelector:@selector(count)] && [obj count] == 0);
+}
 
 @interface ACUtils : NSObject
 
